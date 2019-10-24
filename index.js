@@ -23,10 +23,19 @@ function generateLot(qtd) {
 
 
 
-console.time('inserindo');
-for (let index = 0; index < qtdInserts; index++) {
-    Rand.insertMany(generateLot(100000));    
-}
-console.timeEnd('inserindo');
+// console.time('inserindo');
+// for (let index = 0; index < qtdInserts; index++) {
+//     Rand.insertMany(generateLot(100000));
+// }
+// console.timeEnd('inserindo');
 
 
+
+// console.time('buscando');
+Rand.find({},function (err, apis) {
+
+    if (err) return console.error(err);
+
+    console.log(apis[0]);
+});
+// console.timeEnd('buscando')
