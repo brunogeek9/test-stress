@@ -11,7 +11,6 @@ npm start_lot
 ```
 
 ### Running in unique data insert mode
-
 ```
 npm start_unique
 ```
