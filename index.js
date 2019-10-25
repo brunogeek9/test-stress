@@ -23,19 +23,21 @@ function generateLot(qtd) {
 
 
 
-// console.time('inserindo');
-// for (let index = 0; index < qtdInserts; index++) {
-//     Rand.insertMany(generateLot(100000));
-// }
-// console.timeEnd('inserindo');
+console.time('inserindo');
+for (let index = 0; index < qtdInserts; index++) {
+    Rand.insertMany(generateLot(100000));
+}
+console.timeEnd('inserindo');
 
-
+// var query;
 
 // console.time('buscando');
-Rand.find({},function (err, apis) {
+//val1: {$gte:0}, val2:{$lte:10}
+// Rand.find({},function (err, apis) {
 
-    if (err) return console.error(err);
-
-    console.log(apis[0]);
-});
+//     if (err) return console.error(err);
+//     // query = apis[0]
+//     console.log(apis[0]);
+// });
 // console.timeEnd('buscando')
+// console.log(query);

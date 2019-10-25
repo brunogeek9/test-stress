@@ -5,6 +5,14 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Running in insert lote mode
 ```
-npm start
+npm start_lot
+```
+
+### Running in unique data insert mode
+
+```
+npm start_unique
+```
+

@@ -1,5 +1,5 @@
 const mongo = require('mongoose');
-const qtdData = 1000000;
+const qtdData = 100000;
 mongo.connect(
     'mongodb://localhost:27017/numbers',
     { useNewUrlParser: true }
