@@ -1,3 +1,4 @@
+
 module.exports = {
     random(low, high) {
         return Math.floor(Math.random() * (high - low) + low)
@@ -11,6 +12,8 @@ module.exports = {
     },
     async consoleAsync(data) {
         await console.log(data);
-    }
+    },
+
+
 
 }
