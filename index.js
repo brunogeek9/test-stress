@@ -3,9 +3,11 @@ const readline = require('readline');
 const utils = require('./utils');
 const qtdArray = 100;
 const qtdInserts = 100;
+const PORT = 27017;
+const DB_NAME = 'fake_rands';
 var num = 3;
 mongo.connect(
-    'mongodb://localhost:27017/fake_rands',
+    `mongodb://localhost:${PORT}/${DB_NAME}`,
     { useNewUrlParser: true }
 
 );
@@ -38,18 +40,20 @@ switch (num) {
         Rand.find({ val1: { $gte: 0 }, val1: { $lte: 10 } }, function (err, d) {
 
             if (err) return console.error(err);
+            console.timeEnd('buscando')
             utils.consoleAsync(d);
         });
-        console.timeEnd('buscando')
+        
         break;
     case 3:
         console.time('buscando_apenas_val1');
         Rand.find({ val1: { $gte: 0 }, val1: { $lte: 10 } }, { '_id': 0, '__v': 0, 'val2': 0 }, function (err, d) {
 
             if (err) return console.error(err);
+            console.timeEnd('buscando_apenas_val1')
             utils.consoleAsync(d);
         });
-        console.timeEnd('buscando_apenas_val1')
+        
         break;
     case 4:
         mongo.connection.collection('randomicos').remove({});
