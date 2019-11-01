@@ -1,4 +1,4 @@
-var num = 3;
+var num = 1;
 const mongo = require('mongoose');
 const readline = require('readline');
 const utils = require('./utils');
