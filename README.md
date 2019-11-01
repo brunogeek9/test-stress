@@ -34,3 +34,4 @@ npm start_unique
 
 3. tempo medido para a mesma busca, porem considerando apenas o atributo val1 e desconsiderando os outros foi **2320.601ms**
 #### Resultados pós criação do indice
+1. tempo medido para a inserção de cada bloco de 100000
