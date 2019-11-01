@@ -1,16 +1,16 @@
-var num = 4;
+var num = 3;
 const mongo = require('mongoose');
 const readline = require('readline');
 const utils = require('./utils');
-const qtdArray = 100;
-const qtdInserts = 100;
+const qtdArray = 100000;
+const qtdInserts = 10;
 const PORT = 27017;
 const DB_NAME = 'fake_rands';
 let labels = new Map();
-labels.set('insert','inserindo');
-labels.set('b1','buscando todos os campos');
-labels.set('b2','buscando apenas val1');
-labels.set('remove','removendo tudo da collection')
+labels.set('insert', 'inserindo');
+labels.set('b1', 'buscando todos os campos');
+labels.set('b2', 'buscando apenas val1');
+labels.set('remove', 'removendo tudo da collection')
 mongo.connect(
     `mongodb://localhost:${PORT}/${DB_NAME}`,
     { useNewUrlParser: true }
@@ -33,17 +33,17 @@ console.table(
 );
 
 switch (num) {
-    case 1:
-        // console.time('inserindo');
-        var start = new Date();
-        for (let index = 0; index < qtdInserts; index++) {
-            Rand.insertMany(utils.generateLot(qtdArray), function (error, docs) {
-                // console.timeEnd('inserindo');
-            });
-        }
-        var time = new Date() - start;
-        console.log('tempo: ' + time);
 
+    case 1:
+
+        for (let index = 0; index < qtdInserts; index++) {
+            console.time(`inserindo ${index}`);
+            Rand.insertMany(utils.generateLot(qtdArray), function (error, docs) {
+                console.timeEnd(`inserindo ${index}`);
+            });
+
+
+        }
         break;
     case 2:
         console.time(labels.get('b1'));
@@ -51,7 +51,7 @@ switch (num) {
 
             if (err) return console.error(err);
             console.timeEnd(labels.get('b1'));
-            utils.consoleAsync(d);
+            // utils.consoleAsync(d);
         });
 
         break;
@@ -73,8 +73,3 @@ switch (num) {
 
         break;
 }
-
-
-
-
-
