@@ -1,16 +1,16 @@
 # test-stress
 
-## Project setup
+## Instalação do projeto
 ```
 npm install
 ```
 
-### Running in insert lote mode
+### Executando em modo de inserções em lote
 ```
 npm start_lot
 ```
 
-### Running in unique data insert mode
+### Execução do arquivo de teste de inserção um a um
 ```
 npm start_unique
 ```
@@ -48,3 +48,11 @@ npm start_unique
 * bloco 9: 146312.035ms
 * bloco 5: 147725.709ms
 * bloco 6: 149098.300ms
+
+### Conclusões do teste:
+* Primeiro, as buscas que desconsideram o val2 e id são mais performáticas comparadas as buscas com todos os campos, isso nas mesmas condições.
+* Provando a teoria mostrada em sala de aula, ao criar o índice, as buscas ficam mais rápidas, pois com o grande volume de dados, fica mais fácil percorrer uma collection já ordenada do que uma sequência pseudo aleatória de dados. 
+* Já em relação às inserções em uma collection que já tem dados e está com índice, o tempo de inserção acaba por ser, como foi mostrado antes, praticamente o mesmo, sem diferenças significativas.
+* Porém, as buscas na collection pós criação de índice melhoraram significativamente, tem torno de ~10%.
+
+

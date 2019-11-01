@@ -26,8 +26,8 @@ console.table(
         "",
         'inserir dados',//1
         "buscar dados",//2
-        "buscar dados com projeção",//3
-        "dropar collection",//4
+        "buscar apenas o val1",//3
+        "remover todos os dados da collection",//4
         "contar quantidade de dados da collection"//4
     ]
 );
@@ -66,8 +66,15 @@ switch (num) {
 
         break;
     case 4:
-        mongo.connection.collection('randomicos').deleteMany({});
-        console.log(labels.get('remove'));
+        mongo.connection.collection('randomicos').deleteMany({},function(error,result){
+            console.log(labels.get('remove'));
+        });
+        break;
+    case 5:
+        mongo.connection.collection('randomicos').countDocuments({}, function (error, number) {
+            console.log(`a collection tem ${number} registros`)
+        });
+
         break;
     default:
 
