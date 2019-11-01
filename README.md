@@ -28,7 +28,6 @@ npm start_unique
 * bloco 7: 147862.216ms
 * bloco 5: 149195.843ms
 * bloco 6: 150499.152ms
-* total: 
 2. tempo medido para a busca de aproximadamente 10% dos dados, pegando os valores entre 1 e 10 para o campo val1 foi
 **2883.253ms**
 
